@@ -1,7 +1,7 @@
 :root {
-    --text-color: #DBE4EF;
-    --card-front-color: #008b8b ;
-    --card-back-color: #ff007f ;
+    --text-color: #FFFFFF; /* Cor do texto */
+    --card-front-color: #4B0082; /* Cor do cartão da frente */
+    --card-back-color: #FFD700; /* Cor do cartão de trás */
 }
 
 body {
@@ -27,7 +27,6 @@ body {
 .cartao__conteudo {
     background-color: var(--card-front-color);
     text-align: center;
-    /* background-color: aquamarine; */
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 300ms ease-in-out;
@@ -77,13 +76,13 @@ body {
 
 .cartao__conteudo__resposta {
     transform: rotateY(180deg);
-    background-color: rgba(0, 244, 191, 0.2);
+    background-color: rgba(255, 215, 0, 0.2); /* Cor de fundo suavizada */
     border: 4px solid var(--card-back-color);
 }
 
 footer {
-    background-color: black;
-    color: red;
+    background-color: #333333; /* Cor de fundo do rodapé */
+    color: #FFFFFF; /* Cor do texto do rodapé */
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -97,7 +96,6 @@ footer p {
 }
 
 @media (max-width: 560px) {
-    
     body {
         background: url('img/bg-mobile.webp'), no-repeat cover;
     }
@@ -113,84 +111,4 @@ footer p {
     .cartao__conteudo p {
         font-size: 3.8vw;
     }
-}function criaCartao(categoria, pergunta, resposta) {
-    let container = document.getElementById('container')
-    let cartao = document.createElement('article')
-    cartao.className = 'cartao'
-
-    cartao.innerHTML = `
-    <div class="cartao__conteudo">
-    <h3>${categoria}</h3>
-    <div class="cartao__conteudo__pergunta">
-        <p>${pergunta}</p>
-    </div>
-    <div class="cartao__conteudo__resposta">
-        <p>${resposta}</p>
-    </div>
-    </div>
-    `
-
-    let respostaEstaVisivel = false
-
-    function viraCartao() {
-        respostaEstaVisivel = !respostaEstaVisivel
-        cartao.classList.toggle('active', respostaEstaVisivel)
-    }
-    cartao.addEventListener('click', viraCartao)
-
-
-    container.appendChild(cartao)
-
-}<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Flashcard</title>
-</head>
-<body>
-    <main>
-        <section id="container">
-            <!-- <article class="cartao">
-                <div class="cartao__conteudo">
-                    <h3>Programação</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        <p>O que é JavaScript?</p>
-                    </div>
-                    <div class="cartao__conteudo__resposta">
-                        <p>O JavaScript é uma linguagem de programação</p>
-                    </div>
-                </div>
-            </article> -->
-        </section>
-    </main>
-    <footer>
-        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
-    </footer>
-    <script src="app.js"></script>
-    <script src="perguntas.js"></script>
-</body>
-</html>criaCartao(
-    'Programação',
-    'O que é Python?',
-    'O Python é uma linguagem de programação'
-)
-
-criaCartao(
-    'Geografia',
-    'Qual a capital da França?',
-    'A capital da França é Paris'
-)
-
-criaCartao(
-    'Programação',
-    'O que é uma função?',
-    'Uma função é um bloco de código que executa alguma tarefa'
-)
-
-criaCartao(
-    'Lingua inglesa',
-    'Como se diz oi em Inglês?',
-    'Oi em ingles é HI (RAI)'
-)
+}
